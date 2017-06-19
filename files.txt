@@ -1,0 +1,13 @@
+A brief description of each of the files follows:-
+
+Runtime
+segment_commercials.py - Cuts out the advertisement segments from a news video clip from the NewsScape dataset (TODO)
+process_ad_video.py - Processes a single advertisement video supplied as a command line argument
+keyframes.py - Processes a video to break it into constituent frames as per the supplied arguments
+fileops.py - Performs necessary file operations whenever needed
+cnn_feature_extractor.py - Extracts CNN features from the videos and stores them
+rnn_feature_processor.py - Feeds the extracted CNN features to an RNN to perform activity recognition
+path_parameters.py - Contains the various paths of models and dependences needed by the program
+
+Training (only used while training)
+The normal Caffe binary is used for fine-tuning. No file needed.
