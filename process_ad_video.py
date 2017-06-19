@@ -1,10 +1,12 @@
 import os
+os.environ["GLOG_minloglevel"] = "2"
 import sys
 import time
-os.environ["GLOG_minloglevel"] = "2"
+import shutil
 import keyframes
 import fileops
-import shutil
+import path_params
+import placesCNN
 
 def main():
 
@@ -12,6 +14,11 @@ def main():
 	exec_time = time.strftime('%Y-%m-%d %H:%M')
 
 	features_file = '.'
+
+	# Load model paths
+	caffe_path = path_params.caffe_path
+	pycaffe_path = path_params.pycaffe_path
+	placesCNN_path = path_params.placesCNN_path
 
 	# Start video processing
 	clip_path = sys.argv[1]								## ../../dir/video.mp4
@@ -21,11 +28,11 @@ def main():
 	output_filename = clip 								## video
 	clip_dir = rel_clip_path + clip + '/'				## ../../dir/video/
 
-	print rel_clip_path
-	print clip_name
-	print clip
-	print output_filename
-	print clip_dir
+	# print rel_clip_path
+	# print clip_name
+	# print clip
+	# print output_filename
+	# print clip_dir
 
 	if not os.path.exists(clip_dir):
 		os.makedirs(clip_dir)
@@ -51,8 +58,13 @@ def main():
 
 	print "Video preprocessing done...\n"
 
-	print keyframe_times
-	print keyframes_list
+	# print keyframe_times
+	# print keyframes_list
+
+	## Run a model and get labels for keyframe
+	[fc7, scene_type_list, places_labels, scene_attributes_list] = placesCNN.placesCNN(pycaffe_path, placesCNN_path, image_files)
+	fileops.save_features(clip_dir + features_file, fc7)
+	print "Extracted fc7 features...\n"
 
 	overall_end = time.time()	
 	print "Total time taken: %.2f" %(overall_end-overall_start)
