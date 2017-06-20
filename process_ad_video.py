@@ -13,12 +13,11 @@ def main():
 	overall_start = time.time()
 	exec_time = time.strftime('%Y-%m-%d %H:%M')
 
-	features_file = '.'
-
 	# Load model paths
 	caffe_path = path_params.caffe_path
 	pycaffe_path = path_params.pycaffe_path
 	placesCNN_path = path_params.placesCNN_path
+	features_file = path_params.features_file
 
 	# Start video processing
 	clip_path = sys.argv[1]								## ../../dir/video.mp4
