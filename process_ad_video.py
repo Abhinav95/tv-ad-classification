@@ -62,18 +62,18 @@ def main():
 	# print keyframe_times
 	# print keyframes_list
 
-	## Run a model and get labels for keyframe
-	print "Running FC7 feature extraction from PlacesCNN...\n"
-	[fc7, scene_type_list, places_labels, scene_attributes_list] = placesCNN.placesCNN(pycaffe_path, placesCNN_path, image_files)
-	fileops.save_features(clip_dir + features_file, fc7)
-	print "Extracted fc7 features...\n"
+	# ## Run a model and get labels for keyframe
+	# print "Running FC7 feature extraction from PlacesCNN...\n"
+	# [fc7, scene_type_list, places_labels, scene_attributes_list] = placesCNN.placesCNN(pycaffe_path, placesCNN_path, image_files)
+	# fileops.save_features(clip_dir + features_file, fc7)
+	# print "Extracted fc7 features...\n"
 	
 	## Perform classification using the fine tuned ad model
 	print "Running tv_adnet for category classification...\n"
 	[tv_adnet_output, tv_adnet_labels] = tv_adnet.mynet(pycaffe_path, tv_adnet_path, image_files)
 	print "(tv-adnet) Classified frames...\n"
 
-	print tv_adnet_output
+	print "The top 5 [labels : probabilites] in order are:-"
 	print tv_adnet_labels
 
 	overall_end = time.time()	

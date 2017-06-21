@@ -69,22 +69,35 @@ def get_labels(labels, scores):
 
 	final_labels = []
 	labels_set = []
+
+	prob_vector = np.zeros(len(scores['prob'][0]))
+
 	for idx, output_prob in enumerate(scores['prob']):
+		prob_vector = np.add(prob_vector, np.asarray(output_prob))
 
-		toplabels_idx = output_prob.argsort()[::-1][:3]
+	prob_vector = np.divide(prob_vector, len(scores['prob']))
+	top_prob_idx = prob_vector.argsort()[::-1][:5]
 
-		if output_prob[toplabels_idx[0]] > .2:
-			maxprob_label = labels[output_prob.argmax()][1]
-		else:
-			maxprob_label = 'Problem/Unclassified'
-		final_labels.append(maxprob_label)
+	for idx in top_prob_idx:
+		final_labels.append(labels[idx])
+		labels_set.append([labels[idx], prob_vector[idx]])
 
-		label_list = []
-		for label_prob, label_idx in zip(output_prob[toplabels_idx], toplabels_idx):
-			if label_prob > .2:
-				label_list.append('(' + labels[label_idx][1] + ', ' + str(float('%.3f' %label_prob)) + ')')
-		label_list = ', '.join(map(str, label_list))	
-		labels_set.append(label_list)
+	# for idx, output_prob in enumerate(scores['prob']):
+
+	# 	toplabels_idx = output_prob.argsort()[::-1][:5]
+
+	# 	if output_prob[toplabels_idx[0]] > .2:
+	# 		maxprob_label = labels[output_prob.argmax()]
+	# 	else:
+	# 		maxprob_label = 'Problem/Unclassified'
+	# 	final_labels.append(maxprob_label)
+
+	# 	label_list = []
+	# 	for label_prob, label_idx in zip(output_prob[toplabels_idx], toplabels_idx):
+	# 		if label_prob > .2:
+	# 			label_list.append('(' + labels[label_idx] + ', ' + str(float('%.3f' %label_prob)) + ')')
+	# 	label_list = ', '.join(map(str, label_list))	
+	# 	labels_set.append(label_list)
 
 	return final_labels, labels_set
 
