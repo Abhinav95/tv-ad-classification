@@ -8,6 +8,12 @@ pycaffe_path = caffe_path + 'python'
 fpickle = './5class_ovr_classifier.pkl'
 features_file = 'cropped_places_fc7.csv'
 
+# TV AdNet path --> mycaffe/models/tv-adnet
+tv_adnet_path = caffe_path + 'models/tv-adnet/'
+tv_adnet_prototxt = tv_adnet_path + 'tv-adnet_deploy.prototxt'
+tv_adnet_caffemodel = tv_adnet_path + 'tv-adnet_iter_100000.caffemodel'
+tv_adnet_labels = tv_adnet_path + 'tv-adnet_labels.csv'
+
 # Places CNN path --> mycaffe/models/placesCNN
 placesCNN_path = caffe_path + 'models/placesCNN/'
 placesCNN_prototxt = placesCNN_path + 'places205CNN_deploy_upgraded.prototxt'

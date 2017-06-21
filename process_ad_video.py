@@ -7,6 +7,7 @@ import keyframes
 import fileops
 import path_params
 import placesCNN
+import tv_adnet
 
 def main():
 
@@ -17,7 +18,8 @@ def main():
 	caffe_path = path_params.caffe_path
 	pycaffe_path = path_params.pycaffe_path
 	placesCNN_path = path_params.placesCNN_path
-	features_file = path_params.features_file
+	tv_adnet_path = path_params.tv_adnet_path
+	features_file = 'dummy.csv' #path_params.features_file
 
 	# Start video processing
 	clip_path = sys.argv[1]								## ../../dir/video.mp4
@@ -61,9 +63,18 @@ def main():
 	# print keyframes_list
 
 	## Run a model and get labels for keyframe
+	print "Running FC7 feature extraction from PlacesCNN...\n"
 	[fc7, scene_type_list, places_labels, scene_attributes_list] = placesCNN.placesCNN(pycaffe_path, placesCNN_path, image_files)
 	fileops.save_features(clip_dir + features_file, fc7)
 	print "Extracted fc7 features...\n"
+	
+	## Perform classification using the fine tuned ad model
+	print "Running tv_adnet for category classification...\n"
+	[tv_adnet_output, tv_adnet_labels] = tv_adnet.mynet(pycaffe_path, tv_adnet_path, image_files)
+	print "(tv-adnet) Classified frames...\n"
+
+	print tv_adnet_output
+	print tv_adnet_labels
 
 	overall_end = time.time()	
 	print "Total time taken: %.2f" %(overall_end-overall_start)
