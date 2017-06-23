@@ -33,44 +33,40 @@ This classification of commercials is into the following 23 categories:-
 A keyframe from 4 example test videos along with the outputs are shown below.
 
 #### Example 1
-File: kentucky-fried-chickenkfc-chamber-test-360-45192.mp4
+File: kentucky-fried-chickenkfc-chamber-test-360-45192.mp4  
 Category: 06_fast-food-outlets-restaurants
 
 ![kfc-example](static/kfc-example.jpg "KFC Example Video")
 
-Output:-
-`The top 5 [labels : probabilites] in order are:-
-[['06_fast-food-outlets-restaurants', 0.45471436972729862], ['23_retail-distribution-rental-companies', 0.10005687983793905], ['22_public-awareness', 0.092699812081264099], ['13_apparel-clothing-footwear', 0.080644128995197656], ['04_consumer-public-services', 0.054901739252063299]]`
+Output:-  
+`The top 5 [labels : probabilites] in order are: [['06_fast-food-outlets-restaurants', 0.45471436972729862], ['23_retail-distribution-rental-companies', 0.10005687983793905], ['22_public-awareness', 0.092699812081264099], ['13_apparel-clothing-footwear', 0.080644128995197656], ['04_consumer-public-services', 0.054901739252063299]]`
 
 #### Example 2
-File: nike-skates-360-99472.mp4
+File: nike-skates-360-99472.mp4  
 Category: 13_apparel-clothing-footwear
 
 ![nike-example](static/nike-example.jpg "Nike Example Video")
 
-Output:-
-`The top 5 [labels : probabilites] in order are:-
-[['13_apparel-clothing-footwear', 0.51708157997511861], ['22_public-awareness', 0.18499881764358048], ['04_consumer-public-services', 0.16289945019604854], ['01_alcoholic-drinks-tobacco', 0.061124437368357168], ['06_fast-food-outlets-restaurants', 0.023659305755164235]]`
+Output:-  
+`The top 5 [labels : probabilites] in order are: [['13_apparel-clothing-footwear', 0.51708157997511861], ['22_public-awareness', 0.18499881764358048], ['04_consumer-public-services', 0.16289945019604854], ['01_alcoholic-drinks-tobacco', 0.061124437368357168], ['06_fast-food-outlets-restaurants', 0.023659305755164235]]`
 
 #### Example 3
-File: uefa-together-we-play-strong-360-61902.mp4
+File: uefa-together-we-play-strong-360-61902.mp4  
 Category: 05_culture-leisure-sport
 
 ![uefa-example](static/uefa-example.jpg "UEFA Example Video")
 
-Output:-
-`The top 5 [labels : probabilites] in order are:-
-[['05_culture-leisure-sport', 0.89002430691967704], ['15_confectionery-snacks', 0.043071130712228789], ['12_transport-travel-tourism', 0.025212416302817134], ['02_automotive', 0.023489738645691184], ['22_public-awareness', 0.0077147928995272754]]`
+Output:-  
+`The top 5 [labels : probabilites] in order are: [['05_culture-leisure-sport', 0.89002430691967704], ['15_confectionery-snacks', 0.043071130712228789], ['12_transport-travel-tourism', 0.025212416302817134], ['02_automotive', 0.023489738645691184], ['22_public-awareness', 0.0077147928995272754]]`
 
 #### Example 4
-File: corona-the-oceans-360-34498.mp4
+File: corona-the-oceans-360-34498.mp4  
 Category: 01_alcoholic-drinks-tobacco
 
 ![corona-example](static/corona-example.jpg "Corona Example Video")
 
-Output:-
-`The top 5 [labels : probabilites] in order are:-
-[['22_public-awareness', 0.5100584880878537], ['01_alcoholic-drinks-tobacco', 0.31181776194454913], ['02_automotive', 0.094240187919956253], ['04_consumer-public-services', 0.024657759607296301], ['05_culture-leisure-sport', 0.02131677328555057]]`
+Output:-  
+`The top 5 [labels : probabilites] in order are: [['22_public-awareness', 0.5100584880878537], ['01_alcoholic-drinks-tobacco', 0.31181776194454913], ['02_automotive', 0.094240187919956253], ['04_consumer-public-services', 0.024657759607296301], ['05_culture-leisure-sport', 0.02131677328555057]]`
 
 We can see that the predictions usually make sense. The failure cases are those in which the actual category is something but the visual features of the advertisement are not exactly in line with it, e.g. an alcohol ad with no bottles shown, a food ad in which there are only two people talking and the brand name without actual food visuals etc. The classifier gets thrown off in these cases, which happens often in advertisements having implicit brand semantics which can't be understood by visual features alone. Nevertheless, performance is good in those cases where the visual features make sense and generically correspond to the correct category.
 
