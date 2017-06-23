@@ -5,9 +5,9 @@ segment_commercials.py - Cuts out the advertisement segments from a news video c
 process_ad_video.py - Processes a single advertisement video supplied as a command line argument
 keyframes.py - Processes a video to break it into constituent frames as per the supplied arguments
 fileops.py - Performs necessary file operations whenever needed
-cnn_feature_extractor.py - Extracts CNN features from the videos and stores them
-rnn_feature_processor.py - Feeds the extracted CNN features to an RNN to perform activity recognition
-path_parameters.py - Contains the various paths of models and dependences needed by the program
+tv_adnet.py - Contains the tv-adnet definition and network evaluation code that gives the labels of the ad videos
+placesCNN.py - Contains code to give FC7 features from the places205CNN model that can be used later
+path_params.py - Contains the various paths of models and dependences needed by the program
 
 Training (only used while training)
-The normal Caffe binary is used for fine-tuning. No file needed.
+The normal Caffe binary is used for fine-tuning. No file needed. Training details included in README.md

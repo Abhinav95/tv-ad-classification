@@ -76,6 +76,8 @@ def main():
 	print "The top 5 [labels : probabilites] in order are:-"
 	print tv_adnet_labels
 
+	shutil.rmtree(clip_dir)
+
 	overall_end = time.time()	
 	print "Total time taken: %.2f" %(overall_end-overall_start)
 
