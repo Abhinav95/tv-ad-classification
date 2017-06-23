@@ -33,13 +33,21 @@ This classification of commercials is into the following 23 categories:-
 
 Coming Soon
 
+## Installation
+Clone the repository, while ensuring that all dependencies are correctly installed.
+
 ## Usage
 
-python process_ad_video.py <ad-video-filename>
+`python process_ad_video.py <ad-video-filename>`
 
 This will automatically run the system to classify an incoming ad video provided everything is set up correctly.
 
 An alternative form of usage that allows an entire news video to be processed and its commercials classified is coming soon.
+
+## Dependencies
+- Python (https://www.python.org/downloads/) : The language of the project. The code has been tested with Python 2.7.8 and 2.7.12. It should work with any recent version of Python 2.
+- Caffe (https://github.com/BVLC/caffe) : Neural network framework. Needs to be complied with Python support (pycaffe). The code has been tested with Caffe rc3, and should work with the GitHub version.
+- FFMpeg (https://github.com/FFmpeg/FFmpeg) : For video processing. The code has been tested with v2.8.2 and v3.1.0, and should work with the GitHub version.
 
 ## Training Details
 
@@ -64,5 +72,15 @@ These results are positive. A random classifier (chance, coin-toss, dice-roll et
 Coming Soon
 
 ## Credits
-
-Coming Soon
+- Places205-AlexNet model: 
+	B. Zhou, A. Lapedriza, J. Xiao, A. Torralba, and A. Oliva
+	Learning Deep Features for Scene Recognition using Places Database.
+	Advances in Neural Information Processing Systems 27 (NIPS) spotlight, 2014.
+	http://places.csail.mit.edu/downloadCNN.html
+- Reference Caffenet model:
+	AlexNet trained on ILSVRC 2012, with a minor variation from the version as described in ImageNet classification with deep convolutional neural networks by Krizhevsky et al. in NIPS 2012. Model trained by J. Donahue.
+- Coloribus archive:
+	Coloribus is a thoroughly collected and daily updated advertising archive, the biggest online collection of creative advertising pieces from all over the world. Highly structured database containing information about brands, agencies, people involved, awards and other very relevant data, combined with advanced full-text search engine.
+- Red Hen Lab NewsScape Dataset:
+	This work made use of the NewsScape dataset and the facilities of the Distributed Little Red Hen Lab, co-directed by Francis Steen and Mark Turner.
+	http://redhenlab.org
